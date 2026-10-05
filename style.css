@@ -293,6 +293,151 @@ body {
 }
 
 /* =========================================================
+   قسم المؤسس (الأستاذ عاصم عبد الكريم)
+   ========================================================= */
+.founder-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 35px;
+  background: linear-gradient(145deg, #ffffff, var(--bg-cream));
+  border: 2px solid var(--accent-gold);
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+.founder-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.founder-img-wrapper {
+  flex-shrink: 0;
+}
+
+.founder-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.founder-info {
+  flex-grow: 1;
+}
+
+.founder-name {
+  font-family: 'Amiri', serif;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.founder-role {
+  color: var(--accent-gold);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
+
+.founder-text p {
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  line-height: 2;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.founder-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* للتجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .founder-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px 20px;
+  }
+
+  .founder-text p {
+    text-align: center;
+  }
+
+  .founder-img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* =========================================================
+   قسم الإشراف العام
+   ========================================================= */
+.supervisors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.supervisor-card {
+  background: linear-gradient(to bottom, var(--bg-cream), #ffffff);
+  border: 2px solid var(--accent-gold);
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.supervisor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.supervisor-img-box {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 15px;
+}
+
+.supervisor-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.supervisor-info h4 {
+  font-family: 'Amiri', serif;
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.supervisor-role {
+  color: var(--accent-gold);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.supervisor-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* =========================================================
    قسم الشيخ
    ========================================================= */
 .sheikh-card {
