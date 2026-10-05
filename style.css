@@ -30,6 +30,72 @@
 }
 
 /* =========================================================
+   كارت معاينة الروابط (Link Preview)
+   ========================================================= */
+.link-preview-card {
+  max-width: 450px;
+  margin: 20px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #1c242d; /* اللون الداكن المشابه لثيم المحادثة */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-preview-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.preview-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.preview-img-box {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.preview-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.preview-content {
+  padding: 14px 18px;
+  text-align: right;
+  direction: rtl;
+}
+
+.preview-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.preview-description {
+  font-size: 0.92rem;
+  color: #b0bec5;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.preview-domain {
+  font-size: 0.82rem;
+  color: #78909c;
+  display: block;
+  direction: ltr;
+  text-align: left;
+}
+
+/* =========================================================
    الإعدادات الأساسية والهيكل
    ========================================================= */
 * {
