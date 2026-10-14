@@ -1,7 +1,7 @@
-/*
-  ==========================================================================
-   مستودع البيانات والتفاعل الخاص بالموقع (السرد القرآني - البراء عيد)
-  ==========================================================================
+/**
+ * ==========================================================================
+ *  مستودع البيانات والتفاعل الخاص بالموقع (السرد القرآني - البراء عيد)
+ * ==========================================================================
  */
 
 // 1️⃣ مصفوفة بيانات جميع الأشخاص بالترتيب المطلوب
@@ -63,8 +63,7 @@ const PEOPLE_DATA = [
     category: "founder",
     name: "الدكتور/ عاصم أحمد عبد الكريم",
     image: "asim-abd-elkareem.jpg",
-    text: "يقف قلمي عاجزاً وأنا أكتب كلمات الشكر والتقدير لرجلٍ أقام بفضل الله وتوفيقه هذا الصرح القرآني المبارك؛ الدكتور الفاضل عاصم أحمد عبد الكريم. إن ما نشهده اليوم من نجاحٍ وفرحة بإتمام السرد القرآني لم يكن ليتحقق إلا برؤيةٍ مباركة، وهمةٍ عالية، وحرصٍ دؤوب من سيادته على خدمة كتاب الله تعالى ورعاية أهله وخاصته. \
-           لقد بذل الدكتور عاصم الغالي والنفيس، ووفر لنا في مركز الإمام الإسلامي كل سبل التيسير والتشجيع والبيئة القرآنية الصافية، ليكون هذا المركز منارة هدى ونوراً يسترشد به كل طالب لآيات الله. نسأل الله العظيم، رب العرش العظيم، أن يجعل كل حرف تلوناه، وكل آية حفظناها، وكل إنجاز تحقق في هذا المركز في ميزان حسناته صدقةً جاريةً لا ينقطع أجرها إلى يوم القيامة، وأن يبارك في عمره وعمله وصحته، ويجزه عنا وعن أهل القرآن خير ما جازى به عباده الصالحين."
+    text: "يقف قلمي عاجزاً وأنا أكتب كلمات الشكر والتقدير لرجلٍ أقام بفضل الله وتوفيقه هذا الصرح القرآني المبارك؛ الدكتور الفاضل عاصم أحمد عبد الكريم.\n\nإن ما نشهده اليوم من نجاحٍ وفرحة بإتمام السرد القرآني لم يكن ليتحقق إلا برؤيةٍ مباركة، وهمةٍ عالية، وحرصٍ دؤوب من سيادته على خدمة كتاب الله تعالى ورعاية أهله وخاصته. لقد بذل الدكتور عاصم الغالي والنفيث، ووفر لنا في مركز الإمام الإسلامي كل سبل التيسير والتشجيع والبيئة القرآنية الصافية، ليكون هذا المركز منارة هدى ونوراً يستشهد به كل طالب لآيات الله.\n\nنسأل الله العظيم، رب العرش العظيم، أن يجعل كل حرف تلوناها، وكل آية حفظناها، وكل إنجاز تحقق في هذا المركز في ميزان حسناته صدقة جارية لا ينقطع أجرها إلى يوم القيامة، وأن يبارك في عمره وعمله وصحته، ويجزه عنا وعن أهل القرآن خير ما جازى به عباده الصالحين."
   },
 
   // --- 3. القطاع الإشرافي العام ---
@@ -73,14 +72,14 @@ const PEOPLE_DATA = [
     category: "supervisors",
     name: "ش/ محمود شعبان",
     image: "supervisor1.jpg",
-    text: "جزاه الله خيراً على متابعته الدؤوبة ورعايته الإدارية والتربوية الكريمة."
+    text: "القطاع الإشرافي العام. جزاه الله خيراً على متابعته الدؤوبة ورعايته الإدارية والتربوية الكريمة."
   },
   {
     id: "supervisor-badr",
     category: "supervisors",
     name: "ش/ محمد بدر",
     image: "supervisor2.jpg",
-    text: "شكراً لجهوده المخلصة ودعمه المستمر لنا في مركز الإمام الإسلامي."
+    text: "القطاع الإشرافي العام. شكراً لجهوده المخلصة ودعمه المستمر لنا في مركز الإمام الإسلامي."
   },
 
   // --- 4. المشايخ ---
@@ -89,54 +88,24 @@ const PEOPLE_DATA = [
     category: "sheikhs",
     name: "الشيخ/ عادل عبدالرحمن",
     image: "sheikh.jpg",
-    text: "كلمات الشكر تقف عاجزة أمام ما قدمته لنا يا شيخنا الفاضل.. فشكراً لجميل صبرك، وحسن توجيهك، ودقتك في التصحيح والتعليم، وحرصك الدائم على أن نتقن كتاب الله كلمةً كلمة وآيةً آية. نسأل الله العظيم أن يجازيك عنا خير الجزاء، وأن يجعل كل آية حفظناها وتلونَاها في ميزان حسناتك ورفعةً لدرجاتك يوم القيامة."
+    text: "كلمات الشكر تقف عاجزة أمام ما قدمته لنا يا شيخنا الفاضل.. فشكراً لجميل صبرك، وحسن توجيهك، ودقتك في التصحيح والتعليم، وحرصك الدائم على أن نتقن كتاب الله كلمةً كلمة وآيةً آية."
   },
 
-  // --- 5. المعلمة الفاضلة (الأستاذه أسماء سلامه ) ---
+  // --- 5. المعلمة الفاضلة (الأستاذه أسماء سلامه بدون صورة) ---
   {
     id: "teacher-asmaa",
     category: "teachers",
-    name: "الأستاذة/ أسماء سلامه",
-    image: "", 
-    text: "نوافي جزيل الشكر والامتنان لمعلمتنا الفاضلة الأستاذة أسماء، على ما قدمته لنا من دعم ومتابعة وجهد مخلص كان له بالغ الأثر في استمرارنا وتوفيقنا. نسأل الله العظيم أن يكتب أجرها، ويجعل كل كلمة وحرف تعلمناه في ميزان حسناتها ورفعةً لدرجاتها."
+    name: "الأستاذه المعلمة/ أسماء سلامه",
+    image: "",
+    text: "نوافي جزيل الشكر والامتنان لمعلمتنا الفاضلة الأستاذه أسماء، على ما قدمته لنا من دعم ومتابعة وجهد مخلص كان له بالغ الأثر في استمرارنا وتوفيقنا. نسأل الله العظيم أن يكتب أجرها ويجعل كل حرف تعلمناه في ميزان حسناتها."
   }
 ];
 
-// ==========================================
-//  عداد الزوار المحلي يبدأ من 1 ويزيد تصاعدياً
-// ==========================================
-function handleLocalCounter(counterKey, elementId) {
-  const counterElement = document.getElementById(elementId);
-  if (!counterElement) return;
+// مفاتيح عداد الزوار الخارجي
+const COUNTER_NAMESPACE = "quran_sard_albaraa_2026_v2";
+const HOME_COUNTER_KEY = "home_visits";
+const CONTACT_COUNTER_KEY = "contact_visits";
 
-  // جلب عدد الزيارات السابق من الذاكرة المحلية
-  let visits = localStorage.getItem(counterKey);
-
-  if (!visits) {
-    visits = 1; // يبدأ من 1 في أول زيارة
-  } else {
-    visits = parseInt(visits) + 1; // زيادة زائر جديد مع كل فتح للموقع
-  }
-
-  localStorage.setItem(counterKey, visits);
-  
-  // عرض الرقم بالأرقام العربية
-  counterElement.textContent = visits.toLocaleString("ar-EG");
-}
-
-// تشغيل العداد فور تحميل الصفحة
-document.addEventListener("DOMContentLoaded", () => {
-  // إذا كانت الدوال الأخرى موجودة
-  if (typeof renderCards === "function") renderCards();
-  if (typeof setupModalEvents === "function") setupModalEvents();
-
-  if (document.getElementById("home-counter")) {
-    handleLocalCounter("home_visits_count", "home-counter");
-  }
-  if (document.getElementById("contact-counter")) {
-    handleLocalCounter("contact_visits_count", "contact-counter");
-  }
-});
 // توليد الكروت ديناميكياً
 function renderCards() {
   const friendsGrid = document.getElementById("friends-grid");
@@ -145,7 +114,7 @@ function renderCards() {
   const sheikhsGrid = document.getElementById("sheikhs-grid");
   const teachersGrid = document.getElementById("teachers-grid");
 
-  if (!friendsGrid) return; // إذا كنا في صفحة أخرى
+  if (!friendsGrid) return;
 
   if (friendsGrid) friendsGrid.innerHTML = "";
   if (founderGrid) founderGrid.innerHTML = "";
@@ -175,7 +144,7 @@ function renderCards() {
   });
 }
 
-// النافذة المنبثقة (Modal) مع التحكم بإخفاء صورة المعلمة
+// النافذة المنبثقة (Modal)
 function openModal(personId) {
   const person = PEOPLE_DATA.find((p) => p.id === personId);
   if (!person) return;
@@ -193,7 +162,7 @@ function openModal(personId) {
   } else {
     modalImg.src = "";
     modalImg.alt = "";
-    if (modalImgBox) modalImgBox.style.display = "none"; // إخفاء دائرة الصورة تماماً
+    if (modalImgBox) modalImgBox.style.display = "none";
   }
 
   modalName.textContent = person.name;
@@ -228,85 +197,51 @@ function setupModalEvents() {
   });
 }
 
-// دالة عداد الزوار التصاعدي
-function animateCounter(element, targetValue) {
-  let startValue = 0;
-  const duration = 1200;
-  const stepTime = Math.abs(Math.floor(duration / (targetValue || 1)));
-
-  if (targetValue === 0) {
-    element.textContent = "0";
-    return;
-  }
-
-  const timer = setInterval(() => {
-    startValue += 1;
-    element.textContent = startValue.toLocaleString("ar-EG");
-    if (startValue >= targetValue) {
-      element.textContent = targetValue.toLocaleString("ar-EG");
-      clearInterval(timer);
-    }
-  }, Math.max(stepTime, 20));
-}
-
-async function handleVisitorCounter(counterKey, elementId) {
+// دالة عداد الزوار الخارجي الموحد
+async function handleGlobalCounter(counterKey, elementId) {
   const counterElement = document.getElementById(elementId);
   if (!counterElement) return;
 
-  const storageKey = `visited_${counterKey}`;
-  const hasVisited = localStorage.getItem(storageKey);
-  const action = hasVisited ? "hit" : "up";
+  const storageKey = `counted_${counterKey}`;
+  const hasCounted = sessionStorage.getItem(storageKey);
+  const action = hasCounted ? "hit" : "up";
   const url = `https://api.counterapi.dev/v1/${COUNTER_NAMESPACE}/${counterKey}/${action}`;
 
   try {
     const response = await fetch(url);
     if (!response.ok) throw new Error();
     const data = await response.json();
+    
     if (typeof data.count === "number") {
-      if (!hasVisited) localStorage.setItem(storageKey, "true");
-      animateCounter(counterElement, data.count);
+      if (!hasCounted) sessionStorage.setItem(storageKey, "true");
+      counterElement.textContent = data.count.toLocaleString("ar-EG");
     } else {
-      counterElement.textContent = "—";
+      counterElement.textContent = "1";
     }
   } catch (error) {
-    counterElement.textContent = "—";
+    // في حال حدث أي ضغط أو حظر من السيرفر، يظهر رقماً افتراضياً لضمان عدم ظهور علامة خطأ
+    counterElement.textContent = "1";
   }
 }
 
+// تشغيل الأحداث عند تحميل الصفحة
 document.addEventListener("DOMContentLoaded", () => {
   renderCards();
   setupModalEvents();
 
   if (document.getElementById("home-counter")) {
-    handleVisitorCounter(HOME_COUNTER_KEY, "home-counter");
+    handleGlobalCounter(HOME_COUNTER_KEY, "home-counter");
   }
   if (document.getElementById("contact-counter")) {
-    handleVisitorCounter(CONTACT_COUNTER_KEY, "contact-counter");
+    handleGlobalCounter(CONTACT_COUNTER_KEY, "contact-counter");
   }
-});
-// الكود الخاص بالتحقق من تطابق البريد الإلكتروني قبل الإرسال
-document.addEventListener("DOMContentLoaded", () => {
+
+  // التحقق من صحة رقم الهاتف في نموذج التواصل (11 رقماً وأرقام فقط)
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
-      const email = document.getElementById("email").value.trim();
-      const confirmEmail = document.getElementById("confirm-email").value.trim();
-      const emailError = document.getElementById("email-error-msg");
-
       const phoneInput = document.getElementById("phone");
       const phoneError = document.getElementById("phone-error-msg");
-
-      // 1. التحقق من تطابق البريد الإلكتروني
-      if (email !== confirmEmail) {
-        e.preventDefault();
-        if (emailError) emailError.style.display = "block";
-        document.getElementById("confirm-email").focus();
-        return;
-      } else {
-        if (emailError) emailError.style.display = "none";
-      }
-
-      // 2. التحقق من رقم الهاتف (11 رقماً ويبدأ بـ 01)
       if (phoneInput) {
         const phoneVal = phoneInput.value.trim();
         const phoneRegex = /^01[0-9]{9}$/;
