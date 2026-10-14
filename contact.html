@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل معي | السرد القرآني</title>
+
+  <!-- Google Fonts: Cairo & Amiri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+  <!-- Style CSS Link -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- JavaScript Link -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- زخارف الخلفية -->
+  <div class="bg-pattern"></div>
+
+  <!-- الهيدر -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-decoration">﴿ وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ ﴾</div>
+      <h1 class="main-title">تَوَاصَلْ مَعِي</h1>
+      <p class="header-subtitle">
+        أهلاً وسهلاً بك في صفحة التواصل الخاصة بي. يسعدني تشريفك برأيك أو رسالتك الطيبة.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- قسم نموذج التواصل المباشر -->
+    <section class="content-section">
+      <div class="section-title-wrapper">
+        <h3 class="section-title">أهلاً بك، أرسل رسالتك الآن</h3>
+        <div class="title-line"></div>
+      </div>
+
+      <!-- نموذج الإرسال الموجه لصفحة Transmission.html -->
+      <form id="contact-form" action="https://formspree.io/f/xwlvrynb" method="POST" class="contact-form-box">
+  
+        <div class="form-group">
+          <label for="name">الاسم:</label>
+          <input type="text" id="name" name="name" class="form-input" required placeholder="اكتب اسمك الكريم هنا">
+        </div>
+
+        <!-- البريد الإلكتروني الأساسي -->
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني:</label>
+          <input type="email" id="email" name="email" class="form-input" required placeholder="example@domain.com">
+        </div>
+
+        <!-- ✉️ خانة تأكيد البريد الإلكتروني -->
+        <div class="form-group">
+          <label for="confirm-email">تأكيد البريد الإلكتروني:</label>
+          <input type="email" id="confirm-email" class="form-input" required placeholder="أعد كتابة البريد الإلكتروني">
+          <span id="email-error-msg" style="color: #e60000; font-size: 0.85rem; margin-top: 5px; display: none;">البريد الإلكتروني غير متطابق!</span>
+        </div>
+
+        <!-- 📱 رقم الهاتف (أرقام فقط + 11 رقماً + إجباري) -->
+        <div class="form-group">
+          <label for="phone">رقم الهاتف:</label>
+          <input type="tel" id="phone" name="phone" class="form-input" required placeholder="01xxxxxxxxx" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+          <span id="phone-error-msg" style="color: #e60000; font-size: 0.85rem; margin-top: 5px; display: none;">يجب أن يكون رقم الهاتف مكوناً من 11 رقماً ويبدأ بـ 01!</span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">الرسالة:</label>
+          <textarea id="message" name="message" rows="5" class="form-input textarea" required placeholder="اكتب رسالتك هنا..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-form-btn">إرسال الرسالة 📨</button>
+        <p> </p>
+      </form>
+
+      <!-- بطاقة الواتساب -->
+        <div class="contact-card whatsapp-card">
+          <div class="contact-icon-wrapper">
+            <span class="contact-icon">📱</span>
+          </div>
+          <h3>التواصل عبر الهاتف أو الواتساب</h3>
+          <p>يمكنك مراسلتي فوراً عبر تطبيق الواتساب بالضغط على الزر أدناه:</p>
+          <a href="tel:01111248542" class="call-direct-btn">
+                📞 اتصل مباشرة: 01111248542
+          </a>
+          <p> </p>
+          <div class="contact-action-box">
+            <a href="https://wa.me/201111248542" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+              💬 مراسلة عبر الواتساب
+            </a>
+            
+            <span class="contact-detail-text">01111248542</span>
+          </div>
+        </div>
+
+        <!-- قسم ادعمني / الدعم الاختياري -->
+        <section class="support-section">
+          <div class="support-card">
+            <div class="support-icon">🤝</div>
+            <h3>ادعم استمرار المشروع</h3>
+            <p>إذا كان هذا الموقع قد نال إعجابك أو استفدت منه، يمكنك دعم المطور للاستمرار في تقديم وتطوير المزيد من المشاريع النافعة.</p>
+            
+            <div class="support-methods">
+              <!-- خيار فودافون كاش -->
+              <div class="support-box vodafone">
+                <span class="method-title">📱 فودافون كاش (Vodafone Cash)</span>
+                <span class="phone-num">0106281253</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      <!-- زر العودة للرئيسية -->
+      <div class="back-home-wrapper" style="margin-top: 30px;">
+        <a href="index1.html" class="back-home-btn">🏠 العودة للصفحة الرئيسية</a>
+      </div>
+    </section>
+
+    <!-- عداد الزوار لصفحة التواصل -->
+    <section class="counter-section">
+      <div class="counter-card">
+        <div class="counter-icon">👥</div>
+        <div class="counter-info">
+          <h4>عدد زوار صفحة التواصل</h4>
+          <span class="counter-number" id="contact-counter">—</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- الفوتر -->
+  <footer class="main-footer">
+    <div class="container">
+      <p>جميع الحقوق محفوظة © 2026 بواسطة البراء عيد</p>
+    </div>
+  </footer>
+
+</body>
