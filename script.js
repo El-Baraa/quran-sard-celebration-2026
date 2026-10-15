@@ -224,6 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
     handleSmartCounter("quran_contact_visits_2026", "contact-counter");
   }
 
+
   // التحقق من صحة رقم الهاتف في نموذج التواصل (11 رقماً ويبدأ بـ 01)
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
