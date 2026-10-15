@@ -101,39 +101,6 @@ const PEOPLE_DATA = [
   }
 ];
 
-// ==========================================
-//  عداد الزوار المضمون (يبدأ من 1 لكل صفحة)
-// ==========================================
-function handleSmartCounter(counterKey, elementId) {
-  const counterElement = document.getElementById(elementId);
-  if (!counterElement) return;
-
-  const sessionKey = `visited_session_${counterKey}`;
-  let visits = parseInt(localStorage.getItem(counterKey)) || 1; // يبدأ من 1 بدون أي أرقام وهمية
-
-  if (!sessionStorage.getItem(sessionKey)) {
-    visits += 1;
-    localStorage.setItem(counterKey, visits);
-    sessionStorage.setItem(sessionKey, "true");
-  }
-
-  counterElement.textContent = visits.toLocaleString("ar-EG");
-}
-
-// تشغيل الأحداث والعداد للصفحتين عند تحميل الصفحة
-document.addEventListener("DOMContentLoaded", () => {
-  if (typeof renderCards === "function") renderCards();
-  if (typeof setupModalEvents === "function") setupModalEvents();
-
-  // عداد الصفحة الرئيسية
-  if (document.getElementById("home-counter")) {
-    handleSmartCounter("quran_home_visits_2026", "home-counter");
-  }
-
-  // عداد صفحة التواصل
-  if (document.getElementById("contact-counter")) {
-    handleSmartCounter("quran_contact_visits_2026", "contact-counter");
-  }
 // توليد الكروت ديناميكياً
 function renderCards() {
   const friendsGrid = document.getElementById("friends-grid");
@@ -144,7 +111,7 @@ function renderCards() {
 
   if (!friendsGrid) return;
 
-  if (friendsGrid) friendsGrid.innerHTML = "";
+  friendsGrid.innerHTML = "";
   if (founderGrid) founderGrid.innerHTML = "";
   if (supervisorsGrid) supervisorsGrid.innerHTML = "";
   if (sheikhsGrid) sheikhsGrid.innerHTML = "";
@@ -225,46 +192,39 @@ function setupModalEvents() {
   });
 }
 
-// دالة عداد الزوار الخارجي الموحد
-async function handleGlobalCounter(counterKey, elementId) {
+// دالة العداد الذكي (تبدأ من 1 وتزيد لكل صفحة)
+function handleSmartCounter(counterKey, elementId) {
   const counterElement = document.getElementById(elementId);
   if (!counterElement) return;
 
-  const storageKey = `counted_${counterKey}`;
-  const hasCounted = sessionStorage.getItem(storageKey);
-  const action = hasCounted ? "hit" : "up";
-  const url = `https://api.counterapi.dev/v1/${COUNTER_NAMESPACE}/${counterKey}/${action}`;
+  const sessionKey = `visited_session_${counterKey}`;
+  let visits = parseInt(localStorage.getItem(counterKey)) || 1;
 
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error();
-    const data = await response.json();
-    
-    if (typeof data.count === "number") {
-      if (!hasCounted) sessionStorage.setItem(storageKey, "true");
-      counterElement.textContent = data.count.toLocaleString("ar-EG");
-    } else {
-      counterElement.textContent = "1";
-    }
-  } catch (error) {
-    // في حال حدث أي ضغط أو حظر من السيرفر، يظهر رقماً افتراضياً لضمان عدم ظهور علامة خطأ
-    counterElement.textContent = "1";
+  if (!sessionStorage.getItem(sessionKey)) {
+    visits += 1;
+    localStorage.setItem(counterKey, visits);
+    sessionStorage.setItem(sessionKey, "true");
   }
+
+  counterElement.textContent = visits.toLocaleString("ar-EG");
 }
 
-// تشغيل الأحداث عند تحميل الصفحة
+// تشغيل الأحداث والوظائف عند تحميل الصفحة
 document.addEventListener("DOMContentLoaded", () => {
   renderCards();
   setupModalEvents();
 
+  // عداد الصفحة الرئيسية
   if (document.getElementById("home-counter")) {
-    handleGlobalCounter(HOME_COUNTER_KEY, "home-counter");
-  }
-  if (document.getElementById("contact-counter")) {
-    handleGlobalCounter(CONTACT_COUNTER_KEY, "contact-counter");
+    handleSmartCounter("quran_home_visits_2026", "home-counter");
   }
 
-  // التحقق من صحة رقم الهاتف في نموذج التواصل (11 رقماً وأرقام فقط)
+  // عداد صفحة التواصل
+  if (document.getElementById("contact-counter")) {
+    handleSmartCounter("quran_contact_visits_2026", "contact-counter");
+  }
+
+  // التحقق من صحة رقم الهاتف في نموذج التواصل (11 رقماً ويبدأ بـ 01)
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
