@@ -101,11 +101,28 @@ const PEOPLE_DATA = [
   }
 ];
 
-// مفاتيح عداد الزوار الخارجي
-const COUNTER_NAMESPACE = "https://el-baraa.github.io/quran-sard-celebration-2026/";
-const HOME_COUNTER_KEY = "home_visits";
-const CONTACT_COUNTER_KEY = "contact_visits";
+// دالة العداد العالمي الموحد لجميع الزوار والأجهزة
+async function handleGlobalCounter(counterKey, elementId) {
+  const counterElement = document.getElementById(elementId);
+  if (!counterElement) return;
 
+  // رابط سريع ومفتوح لا يتم حظره من المتصفحات
+  const url = `https://api.counterapi.dev/v1/albaraa_quran_2026_final/${counterKey}/up`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error();
+    const data = await response.json();
+    
+    if (data && typeof data.count === "number") {
+      counterElement.textContent = data.count.toLocaleString("ar-EG");
+    } else {
+      counterElement.textContent = "1";
+    }
+  } catch (error) {
+    counterElement.textContent = "1";
+  }
+}
 // توليد الكروت ديناميكياً
 function renderCards() {
   const friendsGrid = document.getElementById("friends-grid");
