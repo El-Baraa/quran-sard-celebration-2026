@@ -102,38 +102,38 @@ const PEOPLE_DATA = [
 ];
 
 // ==========================================
-//  عداد الزوار الذكي والأنيق للموقع
+//  عداد الزوار المضمون (يبدأ من 1 لكل صفحة)
 // ==========================================
 function handleSmartCounter(counterKey, elementId) {
   const counterElement = document.getElementById(elementId);
   if (!counterElement) return;
 
-  // التحقق من الزيارة الحالية في الجلسة لمنع التكرار الوهمي
   const sessionKey = `visited_session_${counterKey}`;
-  let visits = parseInt(localStorage.getItem(counterKey)) || 120; // يبدأ من رقم افتراضي يبين نشاط الموقع
+  let visits = parseInt(localStorage.getItem(counterKey)) || 1; // يبدأ من 1 بدون أي أرقام وهمية
 
   if (!sessionStorage.getItem(sessionKey)) {
-    visits += 1; // زيادة زائر حقيقي جديد
+    visits += 1;
     localStorage.setItem(counterKey, visits);
     sessionStorage.setItem(sessionKey, "true");
   }
 
-  // عرض الرقم بتنسيق عربي أنيق
   counterElement.textContent = visits.toLocaleString("ar-EG");
 }
 
-// تشغيل العداد فور تحميل الصفحة
+// تشغيل الأحداث والعداد للصفحتين عند تحميل الصفحة
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof renderCards === "function") renderCards();
   if (typeof setupModalEvents === "function") setupModalEvents();
 
+  // عداد الصفحة الرئيسية
   if (document.getElementById("home-counter")) {
     handleSmartCounter("quran_home_visits_2026", "home-counter");
   }
+
+  // عداد صفحة التواصل
   if (document.getElementById("contact-counter")) {
     handleSmartCounter("quran_contact_visits_2026", "contact-counter");
-  }
-});
+}
 // توليد الكروت ديناميكياً
 function renderCards() {
   const friendsGrid = document.getElementById("friends-grid");
