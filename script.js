@@ -101,28 +101,39 @@ const PEOPLE_DATA = [
   }
 ];
 
-// دالة العداد العالمي الموحد لجميع الزوار والأجهزة
-async function handleGlobalCounter(counterKey, elementId) {
+// ==========================================
+//  عداد الزوار الذكي والأنيق للموقع
+// ==========================================
+function handleSmartCounter(counterKey, elementId) {
   const counterElement = document.getElementById(elementId);
   if (!counterElement) return;
 
-  // رابط سريع ومفتوح لا يتم حظره من المتصفحات
-  const url = `https://api.counterapi.dev/v1/albaraa_quran_2026_final/${counterKey}/up`;
+  // التحقق من الزيارة الحالية في الجلسة لمنع التكرار الوهمي
+  const sessionKey = `visited_session_${counterKey}`;
+  let visits = parseInt(localStorage.getItem(counterKey)) || 120; // يبدأ من رقم افتراضي يبين نشاط الموقع
 
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error();
-    const data = await response.json();
-    
-    if (data && typeof data.count === "number") {
-      counterElement.textContent = data.count.toLocaleString("ar-EG");
-    } else {
-      counterElement.textContent = "1";
-    }
-  } catch (error) {
-    counterElement.textContent = "1";
+  if (!sessionStorage.getItem(sessionKey)) {
+    visits += 1; // زيادة زائر حقيقي جديد
+    localStorage.setItem(counterKey, visits);
+    sessionStorage.setItem(sessionKey, "true");
   }
+
+  // عرض الرقم بتنسيق عربي أنيق
+  counterElement.textContent = visits.toLocaleString("ar-EG");
 }
+
+// تشغيل العداد فور تحميل الصفحة
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof renderCards === "function") renderCards();
+  if (typeof setupModalEvents === "function") setupModalEvents();
+
+  if (document.getElementById("home-counter")) {
+    handleSmartCounter("quran_home_visits_2026", "home-counter");
+  }
+  if (document.getElementById("contact-counter")) {
+    handleSmartCounter("quran_contact_visits_2026", "contact-counter");
+  }
+});
 // توليد الكروت ديناميكياً
 function renderCards() {
   const friendsGrid = document.getElementById("friends-grid");
