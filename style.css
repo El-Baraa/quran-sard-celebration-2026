@@ -208,63 +208,68 @@ body {
   color: #333333;
 }
 
-/* شبكة الكروت التفاعلية */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
-}
+/* ==========================================
+   توسيط الشباك/الشبكات وكروت الأشخاص بالكامل
+   ========================================== */
 
-.person-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 25px 20px;
-  text-align: center;
-  border: 1px solid var(--border-gold);
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* 1. توسيط شبكة الكروت نفسها */
+.cards-grid, 
+.people-grid,
+.grid-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.person-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
-}
-
-.person-name {
-  font-family: 'Amiri', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--primary-green);
-  margin-bottom: 20px;
-  line-height: 1.4;
-  min-height: 2.8em;
-  display: flex;
-  align-items: center;
+  align-items: center; /* توسيط العناصر أفقيًا */
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto; /* ضمان التوسيط داخل الحاوية الأم */
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
 }
 
-.read-more-btn {
-  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-  color: #ffffff;
-  border: 1px solid var(--accent-gold);
-  padding: 10px 22px;
-  border-radius: 25px;
-  font-family: 'Cairo', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(13, 59, 46, 0.15);
+/* 2. ضبط الكارت نفسه ليكون متسنتر تماماً في المنتصف */
+.person-card {
+  width: 90%; /* إعطاء عرض مناسب وموحد على الموبايل */
+  max-width: 400px; /* عدم التمدد أكثر من اللازم على الشاشات الكبيرة */
+  margin: 15px auto !important; /* توسيط الكارت في المنتصف تماماً */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* توسيط الاسم والزرار داخل الكارت */
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
 }
 
-.read-more-btn:hover {
-  background: var(--accent-gold);
-  color: var(--primary-green);
-  transform: scale(1.05);
+/* 3. توسيط العناوين والفقرات النصية فوق الكروت وتحتها */
+.section-title,
+.section-description,
+.closing-dua,
+.poem-container {
+  text-align: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 4. إزالة أي هامش جانبي قد يسبب الإزاحة على الموبايل */
+@media (max-width: 768px) {
+  body, html {
+    overflow-x: hidden; /* منع أي سكرول جانبي */
+  }
+
+  .container, 
+  section {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .person-card {
+    width: 100%; /* استغلال المساحة المتاحة بشكل متناسق وموزون */
+  }
 }
 
 /* النافذة المنبثقة (Modal) */
