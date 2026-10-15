@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // عداد صفحة التواصل
   if (document.getElementById("contact-counter")) {
     handleSmartCounter("quran_contact_visits_2026", "contact-counter");
-}
+  }
 // توليد الكروت ديناميكياً
 function renderCards() {
   const friendsGrid = document.getElementById("friends-grid");
