@@ -1,247 +1,618 @@
-/**
- * ==========================================================================
- *  مستودع البيانات والتفاعل الخاص بالموقع (السرد القرآني - البراء عيد)
- * ==========================================================================
- */
-
-// 1️⃣ مصفوفة بيانات جميع الأشخاص بالترتيب المطلوب
-const PEOPLE_DATA = [
-  // --- 1. الأصدقاء والزملاء ---
-  {
-    id: "friend-mohamed-mostafa",
-    category: "friends",
-    name: "محمد مصطفى عبدالصمد عبدالغني",
-    image: "mohamed-mostafa.jpg",
-    text: "جزاك الله خيراً يا رفيق الدرب، وأسأل الله أن يرزقك القبول ويثبت القرآن في قلبك."
-  },
-  {
-    id: "friend-ahmed-omaira",
-    category: "friends",
-    name: "أحمد محمد علي عميره",
-    image: "ahmed-omaira.jpg",
-    text: "دمتَ نِعم الأخ والصديق، أدام الله عزك ونفع بك وأعلى منزلتك بالقرآن."
-  },
-  {
-    id: "friend-adham-sabry",
-    category: "friends",
-    name: "أدهم صبري عبدالمنعم علي",
-    image: "adham-sabry.jpg",
-    text: "شديد الهمة والحرص، مبارك لك يا أدهم وبارك الله في جهودك وأسعدك في الدارين."
-  },
-  {
-    id: "friend-albaraa-eid",
-    category: "friends",
-    name: "البراء عيد أحمد محمود",
-    image: "albaraa.jpg",
-    text: "الحمد لله الذي شرفني بوجودي بين هذه الثلة الطيبة المباركة من أهل القرآن."
-  },
-  {
-    id: "friend-abdullah-mahmoud",
-    category: "friends",
-    name: "عبدالله محمود أحمد السيد",
-    image: "abdullah-mahmoud.jpg",
-    text: "صاحب القلب الخالص والابتسامة الطيبة، فتح الله عليك فتوح العارفين."
-  },
-  {
-    id: "friend-omar-ashraf",
-    category: "friends",
-    name: "عمر أشرف إبراهيم أحمد",
-    image: "omar-ashraf.jpg",
-    text: "أسأل الله أن يرفع قدرك وأن يجعلك مباركاً أينما كنت حاملاً لكتابه."
-  },
-  {
-    id: "friend-mohamed-ahmed",
-    category: "friends",
-    name: "محمد أحمد صلاح عبدالفضيل",
-    image: "mohamed-ahmed.jpg",
-    text: "وفقك الله ونفع بك، وجعل هذا الحفظ نوراً لك وضياءً في طريقك دائماً."
-  },
-
-  // --- 2. مؤسس المركز ---
-  {
-    id: "founder-asim",
-    category: "founder",
-    name: "الدكتور/ عاصم أحمد عبد الكريم",
-    image: "asim-abd-elkareem.jpg",
-    text: "يقف قلمي عاجزاً وأنا أكتب كلمات الشكر والتقدير لرجلٍ أقام بفضل الله وتوفيقه هذا الصرح القرآني المبارك؛ الدكتور الفاضل عاصم أحمد عبد الكريم.\n\nإن ما نشهده اليوم من نجاحٍ وفرحة بإتمام السرد القرآني لم يكن ليتحقق إلا برؤيةٍ مباركة، وهمةٍ عالية، وحرصٍ دؤوب من سيادته على خدمة كتاب الله تعالى ورعاية أهله وخاصته. لقد بذل الدكتور عاصم الغالي والنفيث، ووفر لنا في مركز الإمام الإسلامي كل سبل التيسير والتشجيع والبيئة القرآنية الصافية، ليكون هذا المركز منارة هدى ونوراً يستشهد به كل طالب لآيات الله.\n\nنسأل الله العظيم، رب العرش العظيم، أن يجعل كل حرف تلوناها، وكل آية حفظناها، وكل إنجاز تحقق في هذا المركز في ميزان حسناته صدقة جارية لا ينقطع أجرها إلى يوم القيامة، وأن يبارك في عمره وعمله وصحته، ويجزه عنا وعن أهل القرآن خير ما جازى به عباده الصالحين."
-  },
-
-  // --- 3. القطاع الإشرافي العام ---
-  {
-    id: "supervisor-mahmoud",
-    category: "supervisors",
-    name: "ش/ محمود شعبان",
-    image: "supervisor1.jpg",
-    text: "القطاع الإشرافي العام. جزاه الله خيراً على متابعته الدؤوبة ورعايته الإدارية والتربوية الكريمة."
-  },
-  {
-    id: "supervisor-badr",
-    category: "supervisors",
-    name: "ش/ محمد بدر",
-    image: "supervisor2.jpg",
-    text: "القطاع الإشرافي العام. شكراً لجهوده المخلصة ودعمه المستمر لنا في مركز الإمام الإسلامي."
-  },
-
-  // --- 4. المشايخ ---
-  {
-    id: "sheikh-adel",
-    category: "sheikhs",
-    name: "الشيخ/ عادل عبدالرحمن",
-    image: "sheikh.jpg",
-    text: "كلمات الشكر تقف عاجزة أمام ما قدمته لنا يا شيخنا الفاضل.. فشكراً لجميل صبرك، وحسن توجيهك، ودقتك في التصحيح والتعليم، وحرصك الدائم على أن نتقن كتاب الله كلمةً كلمة وآيةً آية."
-  },
-
-  // --- 5. المعلمة الفاضلة (الأستاذه أسماء سلامه بدون صورة) ---
-  {
-    id: "teacher-asmaa",
-    category: "teachers",
-    name: "الأستاذه المعلمة/ أسماء سلامه",
-    image: "",
-    text: "نوافي جزيل الشكر والامتنان لمعلمتنا الفاضلة الأستاذه أسماء، على ما قدمته لنا من دعم ومتابعة وجهد مخلص كان له بالغ الأثر في استمرارنا وتوفيقنا. نسأل الله العظيم أن يكتب أجرها ويجعل كل حرف تعلمناه في ميزان حسناتها."
-  }
-];
-
-// توليد الكروت ديناميكياً
-function renderCards() {
-  const friendsGrid = document.getElementById("friends-grid");
-  const founderGrid = document.getElementById("founder-grid");
-  const supervisorsGrid = document.getElementById("supervisors-grid");
-  const sheikhsGrid = document.getElementById("sheikhs-grid");
-  const teachersGrid = document.getElementById("teachers-grid");
-
-  if (!friendsGrid) return;
-
-  friendsGrid.innerHTML = "";
-  if (founderGrid) founderGrid.innerHTML = "";
-  if (supervisorsGrid) supervisorsGrid.innerHTML = "";
-  if (sheikhsGrid) sheikhsGrid.innerHTML = "";
-  if (teachersGrid) teachersGrid.innerHTML = "";
-
-  PEOPLE_DATA.forEach((person) => {
-    const card = document.createElement("div");
-    card.className = "person-card";
-    card.innerHTML = `
-      <h4 class="person-name">${person.name}</h4>
-      <button class="read-more-btn" onclick="openModal('${person.id}')">قراءة المزيد ✨</button>
-    `;
-
-    if (person.category === "friends" && friendsGrid) {
-      friendsGrid.appendChild(card);
-    } else if (person.category === "founder" && founderGrid) {
-      founderGrid.appendChild(card);
-    } else if (person.category === "supervisors" && supervisorsGrid) {
-      supervisorsGrid.appendChild(card);
-    } else if (person.category === "sheikhs" && sheikhsGrid) {
-      sheikhsGrid.appendChild(card);
-    } else if (person.category === "teachers" && teachersGrid) {
-      teachersGrid.appendChild(card);
-    }
-  });
+:root {
+  --primary-green: #0d3b2e;
+  --secondary-green: #145241;
+  --accent-gold: #c5a059;
+  --accent-gold-light: #e5cb93;
+  --bg-cream: #faf7f2;
+  --card-bg: #ffffff;
+  --text-dark: #2c3e50;
+  --text-muted: #666666;
+  --border-gold: rgba(197, 160, 89, 0.3);
+  --shadow-soft: 0 10px 30px rgba(13, 59, 46, 0.08);
+  --shadow-hover: 0 15px 35px rgba(13, 59, 46, 0.15);
 }
 
-// النافذة المنبثقة (Modal)
-function openModal(personId) {
-  const person = PEOPLE_DATA.find((p) => p.id === personId);
-  if (!person) return;
-
-  const modal = document.getElementById("person-modal");
-  const modalImg = document.getElementById("modal-img");
-  const modalImgBox = document.querySelector(".modal-img-box");
-  const modalName = document.getElementById("modal-name");
-  const modalText = document.getElementById("modal-text");
-
-  if (person.image && person.image.trim() !== "") {
-    modalImg.src = person.image;
-    modalImg.alt = person.name;
-    if (modalImgBox) modalImgBox.style.display = "block";
-  } else {
-    modalImg.src = "";
-    modalImg.alt = "";
-    if (modalImgBox) modalImgBox.style.display = "none";
-  }
-
-  modalName.textContent = person.name;
-  modalText.textContent = person.text;
-
-  modal.classList.add("active");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-function closeModal() {
-  const modal = document.getElementById("person-modal");
-  if (!modal) return;
-  modal.classList.remove("active");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "auto";
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  line-height: 1.8;
+  position: relative;
+  min-height: 100vh;
+  padding-top: 75px; /* مسافة لكي لا يغطي النافبار الثابت محتوى الصفحة */
 }
 
-function setupModalEvents() {
-  const modal = document.getElementById("person-modal");
-  const closeBtn = document.getElementById("modal-close-btn");
-
-  if (!modal) return;
-  if (closeBtn) closeBtn.addEventListener("click", closeModal);
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("active")) closeModal();
-  });
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-// دالة العداد الذكي (تبدأ من 1 وتزيد لكل صفحة)
-function handleSmartCounter(counterKey, elementId) {
-  const counterElement = document.getElementById(elementId);
-  if (!counterElement) return;
-
-  const sessionKey = `visited_session_${counterKey}`;
-  let visits = parseInt(localStorage.getItem(counterKey)) || 1;
-
-  if (!sessionStorage.getItem(sessionKey)) {
-    visits += 1;
-    localStorage.setItem(counterKey, visits);
-    sessionStorage.setItem(sessionKey, "true");
-  }
-
-  counterElement.textContent = visits.toLocaleString("ar-EG");
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  line-height: 1.8;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+  padding-top: 80px;
 }
 
-// تشغيل الأحداث والوظائف عند تحميل الصفحة
-document.addEventListener("DOMContentLoaded", () => {
-  renderCards();
-  setupModalEvents();
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
 
-  // عداد الصفحة الرئيسية
-  if (document.getElementById("home-counter")) {
-    handleSmartCounter("quran_home_visits_2026", "home-counter");
+.bg-pattern {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(var(--border-gold) 0.8px, transparent 0.8px);
+  background-size: 24px 24px;
+  opacity: 0.4; z-index: -1; pointer-events: none;
+}
+
+/* شريط التنقل العلوي المطور للموبايل والكمبيوتر */
+.main-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--primary-green);
+  border-bottom: 3px solid var(--accent-gold);
+  border-top: none;
+  outline: none;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-header {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: #ffffff;
+  text-align: center;
+  padding: 50px 20px 70px;
+  border-bottom: 5px solid var(--accent-gold);
+  margin-top: 0; /* تأكد ألا يكون هناك هامش يفصلها عن النافبار */
+}
+
+.nav-container {
+  width: 90%; max-width: 1100px;
+  min-height: 70px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.nav-logo {
+  font-family: 'Amiri', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-gold-light);
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: var(--accent-gold);
+  color: var(--primary-green);
+}
+
+/* حل مشكلة شريط الهيدر في الشاشات الصغيرة جداً */
+@media (max-width: 600px) {
+  .nav-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 10px;
   }
-
-  // عداد صفحة التواصل
-  if (document.getElementById("contact-counter")) {
-    handleSmartCounter("quran_contact_visits_2026", "contact-counter");
+  .nav-logo {
+    font-size: 1rem;
+    text-align: center;
   }
-
-
-  // التحقق من صحة رقم الهاتف في نموذج التواصل (11 رقماً ويبدأ بـ 01)
-  const contactForm = document.getElementById("contact-form");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      const phoneInput = document.getElementById("phone");
-      const phoneError = document.getElementById("phone-error-msg");
-      if (phoneInput) {
-        const phoneVal = phoneInput.value.trim();
-        const phoneRegex = /^01[0-9]{9}$/;
-        if (!phoneRegex.test(phoneVal)) {
-          e.preventDefault();
-          if (phoneError) phoneError.style.display = "block";
-          phoneInput.focus();
-        } else {
-          if (phoneError) phoneError.style.display = "none";
-        }
-      }
-    });
+  .nav-links li a {
+    font-size: 0.85rem;
+    padding: 4px 10px;
   }
-});
+  body {
+    padding-top: 100px;
+  }
+}
+
+.main-header {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: #ffffff;
+  text-align: center;
+  padding: 50px 20px 70px;
+  border-bottom: 5px solid var(--accent-gold);
+}
+
+.header-decoration {
+  font-family: 'Amiri', serif;
+  color: var(--accent-gold-light);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.main-title {
+  font-family: 'Amiri', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.header-subtitle {
+  font-family: 'Amiri', serif;
+  font-size: 1.15rem;
+  max-width: 750px;
+  margin: 0 auto;
+  color: #e2ede8;
+}
+
+/* قسم الكاتب المصغر مع التكبير */
+.writer-section {
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
+
+.writer-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  border: 2px solid var(--accent-gold);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.writer-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.writer-card.mini-writer .writer-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-gold);
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.writer-card.mini-writer .writer-info h2 {
+  font-family: 'Amiri', serif;
+  font-size: 1.6rem;
+  color: var(--primary-green);
+  margin-bottom: 5px;
+}
+
+.writer-card.mini-writer .writer-tag {
+  color: var(--accent-gold);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 3px;
+}
+
+.writer-card.mini-writer .writer-sub-tag {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.writer-card.mini-writer .writer-batch {
+  display: inline-block;
+  background: rgba(197, 160, 89, 0.15);
+  color: var(--primary-green);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.date-badge {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ضبط صندوق نموذج الاتصال ليستقر في مكانه الصحيح بدون تداخل */
+.contact-form-section, .content-section {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 40px 30px;
+  margin-top: 30px; /* جعل الهامش العلوي موجباً لكي ينزل تحت الهيدر بمسافة مريحة */
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-gold);
+  position: relative;
+  z-index: 10;
+}
+
+/* ضبط هيكل صفحة التواصل لتكون منضبطة تماماً */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 15px;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: var(--shadow-soft);
+  border: 2px solid var(--accent-gold);
+  margin-top: 30px; /* مسافة موجبة صحيحة لتبتعد عن الهيدر الأخضر */
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 10;
+  text-align: right;
+}
+
+.contact-title {
+  font-family: 'Amiri', serif;
+  font-size: 2.2rem;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle-line {
+  width: 80px;
+  height: 3px;
+  background: var(--accent-gold);
+  margin: 0 auto 30px auto;
+  border-radius: 2px;
+}
+
+/* تنسيق حقول الإدخال والنموذج بشكل مرتب ويمين صحيح */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid var(--border-gold);
+  border-radius: 10px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1rem;
+  background-color: #faf9f6;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+  text-align: right;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-green);
+  outline: none;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(13, 59, 46, 0.15);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: #ffffff;
+  border: 1px solid var(--accent-gold);
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0 auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(13, 59, 46, 0.2);
+}
+
+.submit-btn:hover {
+  background: var(--accent-gold);
+  color: var(--primary-green);
+}
+
+.section-title-wrapper {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 2rem;
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+.title-line {
+  width: 80px;
+  height: 3px;
+  background: var(--accent-gold);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.text-content p {
+  font-family: 'Amiri', serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: justify;
+  color: #2c3e50;
+  line-height: 2;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* تنسيق النصوص الترحيبية تحت العناوين بدون صناديق وبخط أميري نقي */
+.section-intro-text {
+  font-family: 'Amiri', serif;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  direction: rtl;
+}
+
+/* تنسيق الشفافية والخلفية الموحدة للصناديق */
+.section-intro-box {
+  background-color: rgba(8, 40, 30, 0.75); /* درجة الشفافية والخضرة الداكنة الفخمة */
+  border: 1.5px solid var(--border-gold);
+  border-radius: 16px;
+  padding: 15px 25px;
+  margin-top: 12px;
+  margin-bottom: 25px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.person-card {
+  background: #ffffff;
+  border: 2px solid var(--accent-gold);
+  border-radius: 16px;
+  padding: 15px 20px; /* تقليل المسافات البيضاء داخل الكارت لتصبح أضيق وأجمل */
+  width: calc(33.333% - 15px);
+  min-width: 280px;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(13, 59, 46, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* عندما يكون الكارت مفتوحاً (موسعاً) */
+.person-card.expanded {
+  width: 100% !important;
+  max-width: 650px !important;
+  padding: 20px !important; /* تقليل الفراغات البيضاء في الكارت المفتوح أيضاً */
+}
+
+.person-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(13, 59, 46, 0.18);
+}
+
+.person-name {
+  font-family: 'Amiri', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 12px;
+}
+
+.card-preview-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.card-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.card-snippet {
+  font-family: 'Amiri', serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.card-full-text {
+  display: none;
+  font-family: 'Amiri', serif;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  line-height: 1.8;
+  text-align: justify;
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px dashed var(--border-gold);
+  white-space: pre-line;
+  width: 100%;
+}
+
+.card-full-text p {
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+/* حل مشكلة تكرار الصور عند فتح الكارت */
+.person-card.expanded {
+  width: 100% !important;
+  max-width: 700px !important;
+}
+
+.person-card.expanded .card-preview-content {
+  display: none !important; /* إخفاء صورة المعاينة تماماً */
+}
+
+.person-card.expanded .card-full-text {
+  display: block !important; /* إظهار الصورة الكبيرة والنص الكامل فقط */
+}
+
+.read-more-btn {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: #ffffff;
+  border: 1px solid var(--accent-gold);
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: auto;
+  transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background: var(--accent-gold);
+  color: var(--primary-green);
+}
+
+.poem-container {
+  max-width: 750px;
+  margin: 0 auto;
+  background-color: var(--bg-cream);
+  padding: 35px 25px;
+  border-radius: 12px;
+  border-right: 4px solid var(--accent-gold);
+  border-left: 4px solid var(--accent-gold);
+}
+
+.poem-verse {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-family: 'Amiri', serif;
+  font-size: 1.3rem;
+  color: var(--primary-green);
+  border-bottom: 1px dashed rgba(197, 160, 89, 0.4);
+  padding-bottom: 15px;
+}
+
+.bayt-first, .bayt-second { width: 50%; text-align: center; }
+
+.closing-dua {
+  font-family: 'Amiri', serif;
+  font-size: 1.35rem;
+  text-align: center;
+  color: var(--primary-green);
+  background: var(--bg-cream);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid var(--accent-gold);
+  margin-bottom: 25px;
+  line-height: 2;
+}
+
+.signature-box { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.sign-title { font-size: 0.95rem; color: var(--text-muted); }
+.sign-name { font-family: 'Amiri', serif; font-size: 2rem; font-weight: bold; color: var(--accent-gold); }
+.sign-date { font-size: 0.9rem; color: var(--text-muted); }
+
+.counter-section { margin-bottom: 40px; }
+.counter-card {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 2px solid var(--accent-gold);
+  max-width: 400px;
+  margin: 0 auto;
+}
+.counter-icon { font-size: 2.2rem; }
+.counter-info h4 { font-size: 1rem; color: var(--accent-gold-light); }
+.counter-number { font-size: 2rem; font-weight: 800; }
+
+.main-footer {
+  background: var(--primary-green);
+  color: #ffffff;
+  text-align: center;
+  padding: 25px 0;
+  margin-top: 60px;
+  border-top: 3px solid var(--accent-gold);
+}
+
+@media (max-width: 768px) {
+  .person-card { width: 100% !important; max-width: 100% !important; }
+  .poem-verse { flex-direction: column; gap: 8px; }
+  .bayt-first, .bayt-second { width: 100%; }
+}
