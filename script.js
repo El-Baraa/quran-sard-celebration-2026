@@ -1,6 +1,6 @@
 /*
   ==========================================================================
-   مستودع البيانات والتفاعل (صفحة "إحنا بس" - الأشخاص الأساسيون فقط)
+   مستودع البيانات والتفاعل (الأشخاص الأساسيون فقط بدون أي زيادات)
   ==========================================================================
  */
 
@@ -122,11 +122,9 @@ function renderCards() {
     
     const hasImage = person.image && person.image.trim() !== "";
     
-    // تقصير النص لكلمات معدودة مع نقاط في المعاينة المصغرة
     const words = person.text.trim().split(/\s+/);
     const shortText = words.length > 6 ? words.slice(0, 6).join(" ") + "..." : person.text;
 
-    // المعاينة المصغرة: صورة صغيرة بجانب النص المقتضب
     const previewContentHtml = hasImage ? `
       <div class="card-preview-content">
         <img src="${person.image}" alt="${person.name}" class="card-thumb" onerror="this.src='https://via.placeholder.com/150?text=صورة';">
@@ -138,7 +136,6 @@ function renderCards() {
       </div>
     `;
 
-    // تخصيص مقاس أكبر لصورتك أنت وحدك يا براء وباقي الصور بالمقاس العادي الثابت
     const isBaraa = person.name.includes("البراء");
     const imgMaxWidth = isBaraa ? "175px" : "140px";
 
@@ -198,7 +195,9 @@ function handleSmartCounter(storageKey, elementId) {
 
   const counterElement = document.getElementById(elementId);
   if (counterElement) {
-    counterElement.textContent = visits.toLocaleString("ar-EG");
+    counterElement.style.direction = "ltr";
+    counterElement.style.unicodeBidi = "isolate";
+    counterElement.textContent = visits.toLocaleString("en-US");
   }
 }
 
