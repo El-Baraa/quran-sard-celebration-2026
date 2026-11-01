@@ -5,140 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تواصل معي - السرد القرآني</title>
   
-  <!-- Google Fonts -->
+  <!-- خطوط جوجل -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
-  <!-- FontAwesome for Icons -->
+  <!-- أيقونات FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Style CSS Link -->
+  <!-- ملف الـ CSS الخارجي فقط بدون أي كود مدمج -->
   <link rel="stylesheet" href="style.css">
-  
-  <style>
-    /* تنسيقات إضافية خاصة بصفحة التواصل لضمان عدم تداخل الأزرار */
-    .contact-card {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 40px 30px;
-      width: 100%;
-      max-width: 750px;
-      margin: 40px auto;
-      box-shadow: 0 10px 30px rgba(13, 59, 46, 0.08);
-      border: 2px solid var(--accent-gold);
-      text-align: right;
-    }
-    .form-group {
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .form-group label {
-      font-weight: 700;
-      color: var(--primary-green);
-      font-size: 1rem;
-    }
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1.5px solid var(--border-gold);
-      border-radius: 10px;
-      font-family: 'Cairo', sans-serif;
-      font-size: 1rem;
-      background-color: #faf9f6;
-      text-align: right;
-    }
-    .submit-btn {
-      background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-      color: #ffffff;
-      border: 1px solid var(--accent-gold);
-      padding: 12px 30px;
-      border-radius: 25px;
-      font-weight: 700;
-      cursor: pointer;
-      display: block;
-      margin: 25px auto;
-      transition: 0.3s;
-    }
-    .submit-btn:hover {
-      background: var(--accent-gold);
-      color: var(--primary-green);
-    }
-    .box-section {
-      margin-top: 35px;
-      padding-top: 25px;
-      border-top: 2px dashed rgba(197, 160, 89, 0.3);
-      text-align: center;
-    }
-    .box-section h3 {
-      font-family: 'Amiri', serif;
-      color: var(--primary-green);
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-    }
-    .contact-btn-custom {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 25px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      margin: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
-    .whatsapp-btn { background: #25d366; color: white; }
-    .call-btn { background: var(--primary-green); color: var(--accent-gold-light); border: 1px solid var(--accent-gold); }
-    .cash-box {
-      background: #fff8f6;
-      border: 2px dashed #e74c3c;
-      border-radius: 15px;
-      padding: 20px;
-      margin-top: 25px;
-      text-align: center;
-    }
-  </style>
 </head>
 <body>
 
   <!-- شريط التنقل العلوي -->
   <nav class="main-navbar">
     <div class="nav-container">
+      <img src="logo.png" alt="مركز الإمام الإسلامي" class="nav-logo-right" onerror="this.src='https://via.placeholder.com/60?text=لوجو';">
+      
       <a href="index.html" class="nav-logo">
         <span class="nav-link-part" onclick="event.stopPropagation(); window.open('https://www.facebook.com/emam.eslamic', '_blank');">مركز الإمام الإسلامي</span>
         - 
         <span class="nav-link-part" onclick="event.stopPropagation(); window.open('https://www.facebook.com/elamam.elsaf.661', '_blank');">فرع الصف البلد</span>        
       </a>
+
       <ul class="nav-links">
-        <li><a href="index.html" class="active">الرئيسية</a></li>
-        <li><a href="contact.html">تواصل معي</a></li>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="contact.html" class="active">تواصل معي</a></li>
       </ul>
+
+      <img src="badge.jpg" alt="شعار الألفية الثانية" class="nav-badge-left" onerror="this.src='https://via.placeholder.com/60?text=شعار';">
     </div>
   </nav>
-
+  
   <div class="bg-pattern"></div>
 
-  <!-- هيدر الصفحة -->
+  <!-- هيدر الصفحة الرئيسي -->
   <header class="main-header">
-    <div class="container">
-      <div class="header-decoration">﴿ وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ ﴾</div>
-      <h1 class="main-title">تَوَاصَلْ مَعِي</h1>
-      <p class="header-subtitle">
-        أهلاً وسهلاً بك في صفحة التواصل الخاصة بي، يسعدني تشريفك برأيك أو رسالتك الطيبة.
-      </p>
+    <div class="container header-content-wrapper">
+      <img src="logo.png" alt="لوجو مركز الإمام الإسلامي" class="header-side-img header-img-right" onerror="this.src='https://via.placeholder.com/170?text=لوجو';">
+
+      <div class="header-text-center">
+        <div class="header-decoration">﴿ وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ ﴾</div>
+        <h1 class="main-title">تَوَاصَلْ مَعِي</h1>
+        <p class="header-subtitle">
+          أهلاً وسهلاً بك في صفحة التواصل الخاصة بي، يسعدني تشريفك برأيك أو رسالتك الطيبة.
+        </p>
+      </div>
+
+      <img src="badge.jpg" alt="شعار الألفية الثانية" class="header-side-img header-img-left" onerror="this.src='https://via.placeholder.com/170?text=شعار';">
     </div>
   </header>
 
   <!-- محتوى الصفحة -->
   <main class="container">
     <div class="contact-card">
-      <h2 style="font-family: 'Amiri', serif; font-size: 2rem; color: var(--primary-green); text-align: center; margin-bottom: 10px;">أهلاً بك، أرسل رسالتك الآن</h2>
-      <div style="width: 80px; height: 3px; background: var(--accent-gold); margin: 0 auto 30px auto; border-radius: 2px;"></div>
+      <h2 class="contact-main-title">أهلاً بك، أرسل رسالتك الآن</h2>
+      <div class="contact-title-divider"></div>
 
       <form action="#" method="POST" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح، شكراً لتواصلك!');">
         <div class="form-group">
@@ -158,7 +81,7 @@
 
         <div class="form-group">
           <label for="phone">رقم الهاتف:</label>
-          <input type="tel" id="phone" placeholder="01xxxxxxxx0" pattern="[0-9]{10,15}">
+          <input type="tel" id="phone" placeholder="01xxxxxxxx0" pattern="[0-9]{10,15}" required>
         </div>
 
         <div class="form-group">
@@ -169,40 +92,40 @@
         <button type="submit" class="submit-btn">إرسال الرسالة ✉️</button>
       </form>
 
-      <!-- قسم التواصل المباشر (واتساب واتصال) -->
+      <!-- قسم التواصل المباشر -->
       <div class="box-section">
         <h3>التواصل عبر الهاتف أو الواتساب</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">يمكنك مراسلتي فوراً عبر تطبيق الواتساب بالضغط على الزر أدناه</p>
+        <p class="box-section-desc">يمكنك مراسلتي فوراً عبر تطبيق الواتساب بالضغط على الزر أدناه</p>
         
-        <div>
+        <div class="buttons-wrapper">
           <a href="tel:01111248542" class="contact-btn-custom call-btn">
             <i class="fas fa-phone-alt"></i> اتصل مباشرةً 01111248542
           </a>
           <a href="https://wa.me/201111248542" target="_blank" class="contact-btn-custom whatsapp-btn">
-            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> مراسلة عبر الواتساب
+            <i class="fab fa-whatsapp"></i> مراسلة عبر الواتساب
           </a>
         </div>
       </div>
 
-      <!-- قسم دعم استمرار المشروع (فودافون كاش) -->
+      <!-- قسم دعم استمرار المشروع -->
       <div class="cash-box">
-        <h4 style="color: #e74c3c; font-size: 1.2rem; margin-bottom: 8px;"><i class="fas fa-hand-holding-heart"></i> ادعم استمرار المشروع</h4>
-        <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">إذا كان هذا الموقع قد نال إعجابك أو استفعت منه، يمكنك دعم المطور للاستمرار في تقديم وتطوير المزيد من المشاريع النافعة.</p>
-        <div style="font-weight: 800; font-size: 1.25rem; color: #2c3e50; direction: ltr;">
+        <h4><i class="fas fa-hand-holding-heart"></i> ادعم استمرار المشروع</h4>
+        <p>إذا كان هذا الموقع قد نال إعجابك أو استفدت منه، يمكنك دعم المطور للاستمرار في تقديم وتطوير المزيد من المشاريع النافعة.</p>
+        <div class="cash-number-wrapper">
           فودافون كاش (Vodafone Cash)<br>
-          <span style="color: #e74c3c; font-size: 1.4rem;">01062812530</span>
+          <span class="cash-digits">01062812530</span>
         </div>
       </div>
 
     </div>
 
     <!-- عداد زوار صفحة التواصل -->
-    <div class="counter-section" style="margin-top: 30px; margin-bottom: 40px;">
-      <div class="counter-card" style="max-width: 350px; margin: 0 auto; background: var(--primary-green); color: white; padding: 15px 25px; border-radius: 15px; display: flex; align-items: center; justify-content: center; gap: 15px; border: 2px solid var(--accent-gold);">
-        <div style="font-size: 1.8rem;">👥</div>
-        <div>
-          <h4 style="font-size: 0.9rem; color: var(--accent-gold-light);">عدد زوار صفحة التواصل</h4>
-          <span class="counter-number" id="contact-counter" style="font-size: 1.5rem; font-weight: bold;">2</span>
+    <div class="counter-section">
+      <div class="counter-card">
+        <div class="counter-icon">👥</div>
+        <div class="counter-info">
+          <h4>عدد زوار صفحة التواصل</h4>
+          <span class="counter-number" id="contact-counter">25</span>
         </div>
       </div>
     </div>
@@ -214,24 +137,7 @@
     </div>
   </footer>
 
-  <script>
-    // عداد الزيارات الخاص بصفحة التواصل
-    document.addEventListener("DOMContentLoaded", () => {
-      const counterKey = "quran_contact_visits_2026";
-      const sessionKey = `visited_session_${counterKey}`;
-      let visits = parseInt(localStorage.getItem(counterKey)) || 1;
-
-      if (!sessionStorage.getItem(sessionKey)) {
-        visits += 1;
-        localStorage.setItem(counterKey, visits);
-        sessionStorage.setItem(sessionKey, "true");
-      }
-
-      const counterElement = document.getElementById("contact-counter");
-      if (counterElement) {
-        counterElement.textContent = visits.toLocaleString("ar-EG");
-      }
-    });
-  </script>
+  <!-- ملف الجافاسكريبت الخارجي للعداد -->
+  <script src="script.js"></script>
 </body>
 </html>
