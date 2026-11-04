@@ -12,27 +12,27 @@
   --shadow-hover: 0 15px 35px rgba(13, 59, 46, 0.15);
 }
 
-html, body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  width: 100%;
-  overflow-x: hidden;
 }
 
-body {
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  overflow-x: hidden;
   font-family: 'Cairo', sans-serif;
   background-color: var(--bg-cream);
   color: var(--text-dark);
   line-height: 1.8;
   position: relative;
   min-height: 100vh;
-  padding-top: 75px;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+body {
+  padding-top: 75px !important;
 }
 
 .container {
@@ -50,7 +50,9 @@ body {
   opacity: 0.4; z-index: -1; pointer-events: none;
 }
 
-/* شريط التنقل العلوي وتوزيع الصور على الأطراف تماماً */
+/* ==========================================
+   شريط التنقل العلوي (النافبار)
+   ========================================== */
 .main-navbar {
   position: fixed;
   top: 0;
@@ -58,6 +60,8 @@ body {
   width: 100%;
   background: var(--primary-green);
   border-bottom: 3px solid var(--accent-gold) !important;
+  border-top: none !important;
+  margin: 0 !important;
   z-index: 1000;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -67,29 +71,29 @@ body {
   max-width: 1100px;
   min-height: 70px;
   margin: 0 auto;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px 15px;
 }
 
 .nav-logo-right {
-  width: 55px !important;
-  height: 55px !important;
-  object-fit: contain !important;
-  border-radius: 8px !important;
-  background: #ffffff !important;
-  padding: 3px !important;
-  border: 1px solid var(--accent-gold) !important;
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 3px;
+  border: 1px solid var(--accent-gold);
 }
 
 .nav-badge-left {
-  width: 55px !important;
-  height: 55px !important;
-  object-fit: cover !important;
-  border-radius: 50% !important;
-  border: 2px solid var(--accent-gold) !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important;
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .nav-logo {
@@ -137,7 +141,9 @@ body {
   color: var(--primary-green);
 }
 
-/* الهيدر الرئيسي مع الصورتين الكبيرتين على الجانبين */
+/* ==========================================
+   الهيدر الرئيسي
+   ========================================== */
 .main-header {
   background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
   color: #ffffff;
@@ -150,34 +156,34 @@ body {
 }
 
 .header-content-wrapper {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .header-text-center {
-  flex: 1 !important;
-  text-align: center !important;
+  flex: 1;
+  text-align: center;
 }
 
 .header-side-img {
-  width: 170px !important;
-  height: 170px !important;
-  object-fit: contain !important;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3)) !important;
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
 }
 
 .header-img-right {
-  background: rgba(255, 255, 255, 0.95) !important;
-  padding: 8px !important;
-  border-radius: 12px !important;
-  border: 2px solid var(--accent-gold) !important;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px;
+  border-radius: 12px;
+  border: 2px solid var(--accent-gold);
 }
 
 .header-img-left {
-  border-radius: 50% !important;
-  border: 2px solid var(--accent-gold) !important;
+  border-radius: 50%;
+  border: 2px solid var(--accent-gold);
 }
 
 .header-decoration {
@@ -203,7 +209,9 @@ body {
   color: #e2ede8;
 }
 
-/* باقي الأقسام والكاردات */
+/* ==========================================
+   الأقسام والكروت
+   ========================================== */
 .writer-section {
   margin-top: 25px;
   margin-bottom: 40px;
@@ -438,6 +446,9 @@ body {
   color: var(--primary-green);
 }
 
+/* ==========================================
+   قسم النشيد والقصيدة (شاشات الكمبيوتر)
+   ========================================== */
 .poem-container {
   max-width: 750px;
   margin: 0 auto;
@@ -449,19 +460,43 @@ body {
 }
 
 .poem-verse {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 10px;
   margin-bottom: 20px;
   font-family: 'Amiri', serif;
   font-size: 1.3rem;
   color: var(--primary-green);
   border-bottom: 1px dashed rgba(197, 160, 89, 0.4);
   padding-bottom: 15px;
+  position: relative;
 }
 
-.bayt-first, .bayt-second { width: 50%; text-align: center; }
+.bayt-first { 
+  width: 44% !important; 
+  text-align: center !important; 
+  order: 1 !important;
+}
+
+.bayt-second { 
+  width: 44% !important; 
+  text-align: center !important; 
+  order: 3 !important;
+}
+
+/* ضبط الفاصل *** بين الشطرين في منتصف الكمبيوتر بالضبط */
+.poem-verse::after {
+  content: "***" !important;
+  color: var(--accent-gold) !important;
+  font-size: 1.1rem !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  width: 12% !important;
+  order: 2 !important;
+  position: static !important;
+  transform: none !important;
+}
 
 .closing-dua {
   font-family: 'Amiri', serif;
@@ -515,32 +550,9 @@ body {
   border-top: 3px solid var(--accent-gold);
 }
 
-/* التجاوب الذكي للموبايل */
-@media (max-width: 992px) {
-  .header-content-wrapper {
-    flex-direction: column !important;
-    gap: 15px !important;
-  }
-  .header-side-img {
-    width: 100px !important;
-    height: 100px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .person-card { width: 100% !important; max-width: 100% !important; }
-  .poem-verse { flex-direction: column; gap: 8px; }
-  .bayt-first, .bayt-second { width: 100%; }
-  .nav-logo-right, .nav-badge-left {
-    width: 40px !important;
-    height: 40px !important;
-  }
-}
-
 /* ==========================================
-   تنسيقات صفحة التواصل المضافة في آخر ملف الـ CSS
+   صفحة التواصل
    ========================================== */
-
 .contact-card {
   background: var(--card-bg);
   border-radius: 20px;
@@ -663,16 +675,8 @@ body {
   transition: 0.3s;
 }
 
-.whatsapp-btn { 
-  background: #25d366; 
-  color: white; 
-}
-
-.call-btn { 
-  background: var(--primary-green); 
-  color: var(--accent-gold-light); 
-  border: 1px solid var(--accent-gold); 
-}
+.whatsapp-btn { background: #25d366; color: white; }
+.call-btn { background: var(--primary-green); color: var(--accent-gold-light); border: 1px solid var(--accent-gold); }
 
 .cash-box {
   background: #fff8f6;
@@ -683,99 +687,157 @@ body {
   text-align: center;
 }
 
-.cash-box h4 {
-  color: #e74c3c;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-}
-
-.cash-box p {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.cash-number-wrapper {
-  font-weight: 800;
-  font-size: 1.25rem;
-  color: #2c3e50;
-  direction: ltr;
-}
-
-.cash-digits {
-  color: #e74c3c;
-  font-size: 1.4rem;
-}
+.cash-box h4 { color: #e74c3c; font-size: 1.2rem; margin-bottom: 8px; }
+.cash-box p { font-size: 0.9rem; color: #555; margin-bottom: 10px; }
+.cash-number-wrapper { font-weight: 800; font-size: 1.25rem; color: #2c3e50; direction: ltr; }
+.cash-digits { color: #e74c3c; font-size: 1.4rem; }
 
 /* ==========================================
-   التعديل النهائي والمنتظم للشريط العلوي للموبايل
+   تعديلات الموبايل القطعية (Media Query)
    ========================================== */
-
 @media (max-width: 992px) {
   
-  /* الحاوية الأساسية للشريط على الموبايل */
+  /* 1. إزالة الفراغ الأبيض نهائياً وتثبيت المسافة */
+  html, body {
+    padding-top: 90px !important;
+    margin-top: 0 !important;
+  }
+
+  .main-navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+  }
+
+  /* 2. الهيدر الرئيسي وتكبير الصور في الموبايل */
+  .main-header {
+    margin-top: 0 !important;
+    padding-top: 15px !important;
+  }
+
+  .header-content-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 15px !important;
+  }
+
+  /* تكبير صوري الهيدر الرئيسي في الموبايل (اللوجو وشعار الألفية) */
+  .header-side-img {
+    width: 130px !important;
+    height: 130px !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .header-img-right {
+    order: 1 !important;
+  }
+
+  .header-text-center {
+    order: 2 !important;
+    width: 100% !important;
+  }
+
+  .header-img-left {
+    order: 3 !important;
+  }
+
+  /* 3. ترتيب وتكبير لوجوهات الشريط العلوي النافبار */
   .nav-container {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 12px 8px !important;
-    gap: 8px !important;
+    padding: 6px 10px !important;
     position: relative !important;
-    min-height: 85px !important;
+    min-height: 90px !important;
   }
 
-  /* لوجو مركز الإمام على أقصى اليمين */
   .nav-logo-right {
     position: absolute !important;
     right: 12px !important;
-    top: 15px !important;
-    width: 45px !important;
-    height: 45px !important;
-    order: 1 !important;
+    top: 8px !important;
+    width: 50px !important;
+    height: 50px !important;
   }
 
-  /* شعار الألفية على أقصى اليسار */
   .nav-badge-left {
     position: absolute !important;
     left: 12px !important;
-    top: 15px !important;
-    width: 45px !important;
-    height: 45px !important;
-    order: 3 !important;
+    top: 8px !important;
+    width: 50px !important;
+    height: 50px !important;
   }
 
-  /* العنوان في سطر واحد في المنتصف أعلى الزرارين */
   .nav-logo {
     width: 100% !important;
     text-align: center !important;
-    font-size: 0.85rem !important;
+    font-size: 0.82rem !important;
     display: flex !important;
     flex-direction: row !important;
     justify-content: center !important;
     align-items: center !important;
     white-space: nowrap !important;
-    order: 2 !important;
-    margin-bottom: 2px !important;
+    margin-top: 2px !important;
   }
 
-  /* أزرار الرئيسية وتواصل معي تحت العنوان مباشرةً */
   .nav-links {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
-    gap: 12px !important;
-    order: 4 !important;
-    margin-top: 4px !important;
+    gap: 10px !important;
+    margin-top: 3px !important;
   }
 
   .nav-links li a {
-    font-size: 0.85rem !important;
-    padding: 4px 14px !important;
+    font-size: 0.8rem !important;
+    padding: 3px 12px !important;
   }
 
-  /* مسافة علوية للصفحة ليتناسب مع ارتفاع الشريط الجديد */
-  body {
-    padding-top: 125px !important;
+  /* 4. النشيد أفقياً للموبايل مع الـ *** في المنتصف */
+  .poem-verse {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 5px !important;
+    margin-bottom: 18px !important;
+    padding-bottom: 12px !important;
+    border-bottom: 1px dashed rgba(197, 160, 89, 0.4) !important;
+    position: relative !important;
+  }
+
+  .bayt-first, 
+  .bayt-second {
+    width: 44% !important;
+    text-align: center !important;
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+  }
+
+  .poem-verse::after {
+    content: "***" !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    color: var(--accent-gold) !important;
+    font-size: 0.75rem !important;
+    font-weight: bold !important;
+    background: var(--bg-cream) !important;
+    padding: 0 3px !important;
+    width: auto !important;
+    order: unset !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-header {
+    margin-top: -87px !important;
   }
 }
